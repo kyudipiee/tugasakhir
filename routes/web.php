@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\loginController;
+use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\StudentsController;
 use App\Models\Students;
 use Illuminate\Support\Facades\Route;
@@ -31,6 +32,13 @@ Route::get('/dashboard-admin', function () {
 Route::get('/students',[StudentsController::class, 'index'])->name('students');
 Route::get('/tambahstudents',[StudentsController::class, 'tambahstudents'])->name('tambahstudents');
 
+Route::controller(ParentsController::class)->group(function(){
+
+    Route::get('/tambahdata2',[ParentsController::class, 'tambahdata2'])->name('tambahdata2');
+
+});
+
+
 
 Route::post('/insertdata',[StudentsController::class, 'insertdata'])->name('insertdata');
 
@@ -56,3 +64,5 @@ Route::post('/loginproses',[loginController::class, 'loginproses'])->name('login
 
 Route::get('/registerakun',[loginController::class, 'registerakun'])->name('registerakun');
 Route::post('/registerakunuser',[loginController::class, 'registerakunuser'])->name('registerakunuser');
+
+Route::get('/template',[StudentsController::class, 'template'])->name('template');

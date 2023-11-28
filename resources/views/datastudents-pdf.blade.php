@@ -71,18 +71,7 @@
     <td>{{ $row->kecamatan }}</td>
     <td>{{ $row->provinsi }}</td>
     <td>{{ $row->zip }}</td>
-    <td>{{ $row->nik_ayah }}</td>
-    <td>{{ $row->nama_ayah }}</td>
-    <td>{{ $row->tempat_ayah }}</td>
-    <td>{{ $row->ttl_ayah }}</td>
-    <td>{{ $row->pekerjaan_ayah }}
-    <td>0{{ $row->telp_ayah }}</td>
-    <td>{{ $row->nik_ibu }}</td>
-    <td>{{ $row->nama_ibu }}</td>
-    <td>{{ $row->tempat_ibu }}</td>
-    <td>{{ $row->ttl_ibu }}</td>
-    <td>{{ $row->pekerjaan_ibu }}</td>
-    <td>0{{ $row->telp_ibu }}</td>
+    <td>0{{ $row->telp_students }}</td>
   </tr>
   @endforeach
 

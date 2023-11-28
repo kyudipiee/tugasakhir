@@ -19,25 +19,12 @@ return new class extends Migration
             $table->string('tempat');
             $table->date('ttl');
             $table->enum('jk', ['pr','lk']);
+            $table->bigInteger('telp_students');
             //keterangan tempat tinggal
             $table->string('alamat');
             $table->string('kecamatan');
             $table->string('provinsi');
             $table->string('zip');
-            //Data Ayah
-            $table->bigInteger('nik_ayah');
-            $table->string('nama_ayah');
-            $table->string('tempat_ayah');
-            $table->date('ttl_ayah');
-            $table->string('pekerjaan_ayah');
-            $table->bigInteger('telp_ayah');
-            //Data Ibu
-            $table->bigInteger('nik_ibu');
-            $table->string('nama_ibu');
-            $table->string('tempat_ibu');
-            $table->date('ttl_ibu');
-            $table->string('pekerjaan_ibu');
-            $table->bigInteger('telp_ibu');
             //photo data students
             $table->string('foto');
             $table->timestamps();

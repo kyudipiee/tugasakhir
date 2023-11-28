@@ -20,23 +20,14 @@ class StudentsImport implements ToModel
         'tempat' => $row[3],
         'ttl' => $row[4],
         'jk' => $row[5],
-        'alamat' => $row[6],
-        'kecamatan' => $row[7],
-        'provinsi' => $row[8],
-        'zip' => $row[9],
-        'nik_ayah' => $row[10],
-        'nama_ayah' => $row[11],
-        'tempat_ayah' => $row[12],
-        'ttl_ayah' => $row[13],
-        'pekerjaan_ayah' => $row[14],
-        'telp_ayah' => $row[15],
-        'nik_ibu' => $row[16],
-        'nama_ibu' => $row[17],
-        'tempat_ibu' => $row[18],
-        'ttl_ibu' => $row[19],
-        'pekerjaan_ibu' => $row[20],
-        'telp_ibu' => $row[21],
-        'foto' => $row[22]
+        'telp_ibu' => $row[6],
+        'alamat' => $row[7],
+        'kecamatan' => $row[8],
+        'provinsi' => $row[9],
+        'zip' => $row[10],
+
+
+        'foto' => $row[11]
     ]);
 }
 

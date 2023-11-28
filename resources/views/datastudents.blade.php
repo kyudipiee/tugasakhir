@@ -3,7 +3,6 @@
 @push('css')
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" integrity="sha512-3pIirOrwegjM6erE5gPSwkUzO+3cTjpnV9lexlNZqvupR64iZBnOOTiiLPb9M36zpMScbmUNIcHUqKD47M719g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 @endpush
@@ -16,7 +15,7 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Dashboard</h1>
+            <h1 class="m-0">Data Students</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -80,34 +79,24 @@
 
 
 
-        <div class="row">
+        <div class="row" style="overflow-x: auto;">
 
             <table class="table mt-2">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">foto</th>
-                    <th scope="col">nama</th>
-                    <th scope="col">nisn</th>
-                    <th scope="col">tempat</th>
-                    <th scope="col">ttl</th>
-                    <th scope="col">jk</th>
-                    <th scope="col">alamat</th>
-                    <th scope="col">kecamatan</th>
-                    <th scope="col">provinsi</th>
-                    <th scope="col">zip</th>
-                    <th scope="col">nik_ayah</th>
-                    <th scope="col">nama_ayah</th>
-                    <th scope="col">tempat_ayah</th>
-                    <th scope="col">ttl_ayah</th>
-                    <th scope="col">pekerjaan_ayah</th>
-                    <th scope="col">telp_ayah</th>
-                    <th scope="col">nik_ibu</th>
-                    <th scope="col">nama_ibu</th>
-                    <th scope="col">tempat_ibu</th>
-                    <th scope="col">ttl_ibu</th>
-                    <th scope="col">pekerjaan_ibu</th>
-                    <th scope="col">telp_ibu</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">NISN</th>
+                    <th scope="col">Place of Birth</th>
+                    <th scope="col">Date of Birth</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Subdistricts</th>
+                    <th scope="col">Province</th>
+                    <th scope="col">ZIP</th>
+
                     <th scope="col">dibuat</th>
                     <th scope="col">aksi</th>
 
@@ -130,24 +119,13 @@
                     <td>{{ $row->tempat }}</td>
                     <td>{{ $row->ttl }}</td>
                     <td>{{ $row->jk }}</td>
+                    <td>{{ $row->telp_students }}</td>
                     <td>{{ $row->alamat }}</td>
                     <td>{{ $row->kecamatan }}</td>
                     <td>{{ $row->provinsi }}</td>
                     <td>{{ $row->zip }}</td>
-                    <td>{{ $row->nik_ayah }}</td>
-                    <td>{{ $row->nama_ayah }}</td>
-                    <td>{{ $row->tempat_ayah }}</td>
-                    <td>{{ $row->ttl_ayah }}</td>
-                    <td>{{ $row->pekerjaan_ayah }}
-                    <td>0{{ $row->telp_ayah }}</td>
-                    <td>{{ $row->nik_ibu }}</td>
-                    <td>{{ $row->nama_ibu }}</td>
-                    <td>{{ $row->tempat_ibu }}</td>
-                    <td>{{ $row->ttl_ibu }}</td>
-                    <td>{{ $row->pekerjaan_ibu }}</td>
-                    <td>0{{ $row->telp_ibu }}</td>
-                    <td>0{{ $row->created_at->format('D M Y') }}</td>
-                    <td>@mdo</td>
+                    <td>{{ $row->created_at->format('D M Y') }}</td>
+
                     <td>
                         <a href="/tampilkandata/{{ $row->id }}" class="btn btn-warning">EDIT</a>
                         <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" >DELETE</a>
@@ -158,7 +136,7 @@
                 </tbody>
               </table>
               {{ $data->links() }}
-        </div>
+            </div>
     </div>
 
 </div>

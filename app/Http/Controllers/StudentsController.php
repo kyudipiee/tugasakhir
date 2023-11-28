@@ -20,19 +20,21 @@ class StudentsController extends Controller
        }
         return view('datastudents', compact('data'));
     }
+
     public function tambahstudents(){
         return view('tambahdata');
     }
 
-public function insertdata(Request $request){
-    $data = Students::create($request->all());
-    if($request->hasFile('foto')){
-        $request->file('foto')->move('fotostudents/', $request->file('foto')->getClientOriginalName());
-        $data->foto = $request->file('foto')->getClientOriginalName();
-        $data->save();
-    }
+    //bagaimana menambahkan data siswa
+    public function insertdata(Request $request){
+        $data = Students::create($request->all());
+        if($request->hasFile('foto')){
+            $request->file('foto')->move('fotostudents/', $request->file('foto')->getClientOriginalName());
+            $data->foto = $request->file('foto')->getClientOriginalName();
+            $data->save();
+        }
 
-    return redirect()->route('students')->with('success', 'data siswa berhasil ditambahkan');
+        return redirect()->route('students')->with('success', 'data siswa berhasil ditambahkan');
 }
 
 //id merupakan parameter yang diambil datastudents & untuk menampilkan data
@@ -76,5 +78,10 @@ public function importexcel(Request $request){
     Excel::import(new StudentsImport, \public_path('/StudentsData/'.$namafile));
     return \redirect()->back();
 }
+
+public function template (){
+    return view ('template');
+}
+
 }
 

@@ -20,15 +20,15 @@
                                 <input type="text" name="nisn" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->nisn }}">
                               </div>
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Tempat</label>
+                                <label for="exampleInputEmail1" class="form-label">Place of Birth</label>
                                 <input type="text" name="tempat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->tempat }}">
                               </div>
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Tanggal Lahir</label>
+                                <label for="exampleInputEmail1" class="form-label">Date of Birth</label>
                                 <input type="date" name="ttl" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->ttl }}">
                               </div>
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Jenis Kelamin</label>
+                                <label for="exampleInputEmail1" class="form-label">Gender</label>
                                 <select class="form-select" name="jk" aria-label="Default select example">
                                     <option selected>{{ $data->jk }}</option>
                                     <option value="pr">Perempuan</option>
@@ -36,68 +36,24 @@
                                   </select>
                               </div>
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Alamat</label>
+                                <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+                                <input type="number" name="telp_students" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->tempat }}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label">Address</label>
                                 <input type="text" name="alamat" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->alamat }}">
                               </div>
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Kecamatan</label>
+                                <label for="exampleInputEmail1" class="form-label">Subdistricts</label>
                                 <input type="text" name="kecamatan" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->kecamatan }}">
                               </div>
                               <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Provinsi</label>
+                                <label for="exampleInputEmail1" class="form-label">Province</label>
                                 <input type="text" name="provinsi" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->provinsi }}">
                               </div>
                               <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">ZIP</label>
                                 <input type="number" name="zip" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->zip }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">NIK Ayah</label>
-                                <input type="text" name="nik_ayah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->nik_ayah }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nama Ayah</label>
-                                <input type="text" name="nama_ayah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->nama_ayah }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Tempat Ayah</label>
-                                <input type="text" name="tempat_ayah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->tempat_ayah }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Tanggal Lahir</label>
-                                <input type="date" name="ttl_ayah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->ttl_ayah }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Pekerjaan Ayah</label>
-                                <input type="text" name="pekerjaan_ayah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->pekerjaan_ayah }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Telp Ayah</label>
-                                <input type="number" name="telp_ayah" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->telp_ayah }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">NIK Ibu</label>
-                                <input type="text" name="nik_ibu" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->nik_ibu }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nama Ibu</label>
-                                <input type="text" name="nama_ibu" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->nama_ibu }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Tempat Ibu</label>
-                                <input type="text" name="tempat_ibu" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->tempat_ibu }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Tanggal Lahir</label>
-                                <input type="date" name="ttl_ibu" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->ttl_ibu }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Pekerjaan Ibu</label>
-                                <input type="text" name="pekerjaan_ibu" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->pekerjaan_ibu }}">
-                              </div>
-                              <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Telp Ibu</label>
-                                <input type="number" name="telp_ibu" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value="{{ $data->telp_ibu }}">
                               </div>
 
 
