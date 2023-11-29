@@ -79,9 +79,16 @@ public function importexcel(Request $request){
     return \redirect()->back();
 }
 
-public function template (){
-    return view ('template');
+public function indexs (){
+    return view ('indexs');
 }
 
+public function tablestudents (){
+        $data = Students::all();
+        return view('tablestudents');
 }
+
+
+}
+
 

@@ -11,27 +11,13 @@
 
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1 class="m-0">Data Students</h1>
-          </div><!-- /.col -->
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
-            </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-
     <div class="container">
+                        <!-- Page Heading -->
+                        <h1 class="h3 mt-3 mb-4 text-gray-800">Tables</h1>
         <a href="/tambahstudents" class="btn btn-success">tambah</a>
 
 
-        <div class="row g-3 align-items-center mt-2">
+        <div class="row g-3 align-items-center mt-2 mb-3">
             <div class="col-auto">
                 <form action="/students" method="GET">
                     <input type="search" name="search" id="inputPassword" class="form-control" aria-describedby="passwordHelpInline">
@@ -79,65 +65,82 @@
 
 
 
-        <div class="row" style="overflow-x: auto;">
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
 
-            <table class="table mt-2">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">NISN</th>
-                    <th scope="col">Place of Birth</th>
-                    <th scope="col">Date of Birth</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Phone</th>
-                    <th scope="col">Address</th>
-                    <th scope="col">Subdistricts</th>
-                    <th scope="col">Province</th>
-                    <th scope="col">ZIP</th>
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">No</th>
 
-                    <th scope="col">dibuat</th>
-                    <th scope="col">aksi</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">NISN</th>
+                                            <th scope="col">Place of Birth</th>
+                                            <th scope="col">Date of Birth</th>
+                                            <th scope="col">Gender</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Subdistricts</th>
+                                            <th scope="col">Province</th>
+                                            <th scope="col">ZIP</th>
 
-                  </tr>
-                </thead>
-                <tbody class="table-group-divider">
-                    @php
-                        $no = 1;
-                    @endphp
+                                            <th scope="col">dibuat</th>
+                                            <th scope="col">aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th scope="col">No</th>
 
-                  @foreach ($data as $index => $row)
-                  <tr>
-                    <th scope="row">{{ $index + $data->firstItem() }}</th>
-                    <td>
-                        <img src="{{ asset('fotostudents/'.$row->foto) }}" alt="" style="width: 70px;">
+                                            <th scope="col">Name</th>
+                                            <th scope="col">NISN</th>
+                                            <th scope="col">Place of Birth</th>
+                                            <th scope="col">Date of Birth</th>
+                                            <th scope="col">Gender</th>
+                                            <th scope="col">Phone</th>
+                                            <th scope="col">Address</th>
+                                            <th scope="col">Subdistricts</th>
+                                            <th scope="col">Province</th>
+                                            <th scope="col">ZIP</th>
 
-                    </td>
-                    <td>{{ $row->nama }}</td>
-                    <td>{{ $row->nisn }}</td>
-                    <td>{{ $row->tempat }}</td>
-                    <td>{{ $row->ttl }}</td>
-                    <td>{{ $row->jk }}</td>
-                    <td>{{ $row->telp_students }}</td>
-                    <td>{{ $row->alamat }}</td>
-                    <td>{{ $row->kecamatan }}</td>
-                    <td>{{ $row->provinsi }}</td>
-                    <td>{{ $row->zip }}</td>
-                    <td>{{ $row->created_at->format('D M Y') }}</td>
+                                            <th scope="col">dibuat</th>
+                                            <th scope="col">aksi</th>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody class="table-group-divider">
+                                    <!-- menampilkan data -->
+                                    @foreach ($data as $row)
+                                    <tr>
+                                        <th scope="row">{{ $row->id }}</th>
+                                        <td>{{ $row->nama }}</td>
+                                        <td>{{ $row->nisn }}</td>
+                                        <td>{{ $row->tempat }}</td>
+                                        <td>{{ $row->ttl }}</td>
+                                        <td>{{ $row->jk }}</td>
+                                        <td>{{ $row->telp_students }}</td>
+                                        <td>{{ $row->alamat }}</td>
+                                        <td>{{ $row->kecamatan }}</td>
+                                        <td>{{ $row->provinsi }}</td>
+                                        <td>{{ $row->zip }}</td>
+                                        <td>{{ $row->created_at->format('D M Y') }}</td>
+                                        <td>
+                                            <a href="/tampilkandata/{{ $row->id }}" class="btn btn-warning">EDIT</a>
+                                            <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" >DELETE</a>
+                                        </td>
+                                    </tr>
+                                    @endforeach
+                                    </tbody>
+                                </table>
+                                {{ $data->links() }}
+                            </div>
+                        </div>
+                    </div>
 
-                    <td>
-                        <a href="/tampilkandata/{{ $row->id }}" class="btn btn-warning">EDIT</a>
-                        <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" >DELETE</a>
-                    </td>
-                  </tr>
-                  @endforeach
 
-                </tbody>
-              </table>
-              {{ $data->links() }}
-            </div>
-    </div>
 
 </div>
 

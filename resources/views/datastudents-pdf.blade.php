@@ -32,27 +32,18 @@
 
 <table id="customers">
   <tr>
+    <th>no</th>
     <th>nama</th>
     <th>nisn</th>
     <th>tempat</th>
     <th>tanggal lahir</th>
     <th>jenis kelamin</th>
+    <th>telp students</th>
     <th>alamat</th>
     <th>kecamatan</th>
     <th>provinsi</th>
     <th>zip</th>
-    <th>nik ayah</th>
-    <th>nama ayah</th>
-    <th>tempat ayah</th>
-    <th>tanggal lahir ayah</th>
-    <th>pekerjaan ayah</th>
-    <th>telp ayah</th>
-    <th>nik ibu</th>
-    <th>nama ibu</th>
-    <th>tempat ibu</th>
-    <th>tanggal lahir ibu</th>
-    <th>pekerjaan ibu</th>
-    <th>telp ibu</th>
+
   </tr>
 
   @php
@@ -67,6 +58,7 @@
     <td>{{ $row->tempat }}</td>
     <td>{{ $row->ttl }}</td>
     <td>{{ $row->jk }}</td>
+    <td>{{ $row->telp_students }}</td>
     <td>{{ $row->alamat }}</td>
     <td>{{ $row->kecamatan }}</td>
     <td>{{ $row->provinsi }}</td>

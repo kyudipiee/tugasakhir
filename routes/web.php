@@ -65,4 +65,5 @@ Route::post('/loginproses',[loginController::class, 'loginproses'])->name('login
 Route::get('/registerakun',[loginController::class, 'registerakun'])->name('registerakun');
 Route::post('/registerakunuser',[loginController::class, 'registerakunuser'])->name('registerakunuser');
 
-Route::get('/template',[StudentsController::class, 'template'])->name('template');
+Route::get('/indexs',[StudentsController::class, 'indexs'])->name('indexs');
+Route::get('/tablestudents',[StudentsController::class, 'tablestudents'])->name('tablestudents');

@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('provinsi');
             $table->string('zip');
             //photo data students
-            $table->string('foto');
+            //$table->string('foto');
             $table->timestamps();
             //
         });
