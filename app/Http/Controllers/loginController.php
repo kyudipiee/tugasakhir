@@ -15,10 +15,11 @@ class loginController extends Controller
     }
 
     public function loginproses(Request $request){
+        // jika Auth (authentication bawaan dari laravel) merequest email dan pw , kalo benar dia akan return redirect ke akun dash students/admin
         if(Auth::attempt($request->only('email', 'password'))){
             return redirect('/dashboard-admin');
         }
-
+        // kalo salah akan kembali ke halaman login
         return redirect('/login');
     }
 
@@ -27,6 +28,9 @@ class loginController extends Controller
     }
 
     public function registerakunuser(Request $request){
+    // mengambil data User, User dari Model
+    // dipassword harus pake bcrypt supaya bisa login
+    // remember_token harus pake str untuk merubah pa
         User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -36,4 +40,12 @@ class loginController extends Controller
 
         return redirect('/login');
     }
+
+    public function logout(){
+        Auth::logout();
+        return \redirect('login');
+    }
+
+
+
 }

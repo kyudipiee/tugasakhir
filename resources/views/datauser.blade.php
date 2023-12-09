@@ -14,51 +14,13 @@
     <div class="container">
     <!-- Page Heading -->
     <h1 class="h3 mt-3 mb-4 text-gray-800">Tables</h1>
-        <a href="/tambahstudents" class="btn btn-success">tambah</a>
-
+    <a href="/registerakun" class="btn btn-success">tambah</a>
 
         <div class="row g-3 align-items-center mt-2 mb-3">
             <div class="col-auto">
                 <form action="/students" method="GET">
                     <input type="search" name="search" id="inputPassword" class="form-control" aria-describedby="passwordHelpInline">
                 </form>
-            </div>
-
-            <div class="col-auto">
-                <a href="/exportpdf" class="btn btn-danger">export PDF</a>
-            </div>
-            <div class="col-auto">
-                <a href="/exportexcel" class="btn btn-success">export Excel</a>
-            </div>
-            <div class="col-auto">
-            <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Import Data
-                </button>
-            </div>
-
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    <form action="/importexcel" method="POST" enctype="multipart/form-data">
-                            @csrf
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <input type="file" name="file" required>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                    </div>
-                    </form>
-                </div>
             </div>
 
         </div>
@@ -75,14 +37,8 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Name</th>
-                                            <th scope="col">NISN</th>
-                                            <th scope="col">Place of Birth</th>
-                                            <th scope="col">Date of Birth</th>
-                                            <th scope="col">Gender</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Address</th>
-                                            <th scope="col">Major</th>
-                                            <th scope="col">Date of Test</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Password</th>
                                             <th scope="col">dibuat</th>
                                             <th scope="col">aksi</th>
                                         </tr>
@@ -91,49 +47,37 @@
                                         <tr>
                                             <th scope="col">No</th>
                                             <th scope="col">Name</th>
-                                            <th scope="col">NISN</th>
-                                            <th scope="col">Place of Birth</th>
-                                            <th scope="col">Date of Birth</th>
-                                            <th scope="col">Gender</th>
-                                            <th scope="col">Phone</th>
-                                            <th scope="col">Address</th>
-                                            <th scope="col">Major</th>
-                                            <th scope="col">Date of Test</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Password</th>
                                             <th scope="col">dibuat</th>
                                             <th scope="col">aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody class="table-group-divider">
-                                    @php
-                                        $no = 1;
-                                    @endphp
-                                    <!-- menampilkan data dan sesuai nama database-->
+                                        @php
+                                            $no = 1;
+                                        @endphp
+                                    <!-- menampilkan data -->
                                     @foreach ($data as $row)
                                     <tr>
                                         <td>
                                             {{ $no++ }}
                                         </td>
-                                        <td>{{ $row->nama }}</td>
-                                        <td>{{ $row->nisn }}</td>
-                                        <td>{{ $row->tempat }}</td>
-                                        <td>{{ $row->ttl }}</td>
-                                        <td>{{ $row->jk }}</td>
-                                        <td>{{ $row->telp_students }}</td>
-                                        <td>{{ $row->alamat }}</td>
-                                        <td>{{ $row->jurusan }}</td>
-                                        <td>{{ $row->users->email }}</td>
-                                        <td>{{ $row->tanggal_test }}</td>
-
+                                        <td>{{ $row->name }}</td>
+                                        <td>{{ $row->email }}</td>
+                                        <td>{{ $row->password }}</td>
                                         <td>{{ $row->created_at->format('D M Y') }}</td>
                                         <td>
-                                            <a href="/tampilkandata/{{ $row->id }}" class="btn btn-warning">EDIT</a>
-                                            <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" >DELETE</a>
+                                            <a href="/tampilkandatauser/{{ $row->id }}" class="btn btn-warning">EDIT</a>
+                                            <a href="/deleteuser/{{ $row->id }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" >DELETE</a>
                                         </td>
                                     </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-                                {{ $data->links() }}
+                                <div class="d-flex justify-content-center">
+                                    {{ $data->links() }}
+                                </div>
                             </div>
                         </div>
                     </div>

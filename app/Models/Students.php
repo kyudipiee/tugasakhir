@@ -11,4 +11,10 @@ class Students extends Model
 
     protected $guarded = [];
     protected $dates = ['created_at'];
+
+    // untuk relasi table user ke students
+    public function users(){
+        return $this->belongsTo(User::class, 'user_id', 'id');
+
+    }
 }

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Login</title>
+    <title>Edit Data</title>
 
     <!-- Custom fonts for this template-->
     <link href="{{ asset('template_admin/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -41,18 +41,23 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome to New Students!</h1>
                                     </div>
-                                    <form action="/loginproses" method="POST" class="user">
+                                    <form action="/updatedatauser/{{ $data->id }}" method="post" class="user">
                                         @csrf
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" name="name"
+                                                id="exampleInputName" aria-describedby="name-info"
+                                                placeholder="Enter Student Name..." value="{{ $data->name }}">
+                                        </div>
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user" name="email"
                                                 id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Email Address...">
+                                                placeholder="Enter Email Address..." value="{{ $data->email }}">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" name="password"
-                                                id="exampleInputPassword" placeholder="Password">
+                                                id="exampleInputPassword" placeholder="Password" value="{{ $data->password }}">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -61,14 +66,14 @@
                                                     Me</label>
                                             </div>
                                         </div>
-                                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                        <button type="submit" class="btn btn-primary btn-user btn-block">Submit</button>
                                         <hr>
                                     </form>
                                     <div class="text-center">
                                         <a class="small" href="forgot-password.html">Forgot Password?</a>
                                     </div>
                                     <div class="text-center">
-                                        <a class="small" href="/registerakun">Create an Account!</a>
+                                        <a class="small" href="/login">Already have an Account!</a>
                                     </div>
                                 </div>
                             </div>

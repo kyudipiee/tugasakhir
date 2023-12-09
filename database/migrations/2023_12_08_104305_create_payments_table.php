@@ -11,23 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('students', function (Blueprint $table) {
-            //Data murid
+        Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nisn');
-            $table->string('tempat');
-            $table->date('ttl');
-            $table->enum('jk', ['pr','lk']);
             $table->bigInteger('telp_students');
-            $table->string('alamat');
-            //keterangan tempat tinggal
             $table->enum('jurusan', ['ipa','ips','tahfidz']);
             $table->date('tanggal_test');
-            //photo data students
-            //$table->string('foto');
+            $table->integer('qty');
+            $table->bigInteger('total_price');
+            $table->enum('status', ['Unpaid', 'Paid']);
             $table->timestamps();
-            //
         });
     }
 
@@ -36,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('payments');
     }
 };

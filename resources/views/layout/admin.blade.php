@@ -33,7 +33,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">TITA Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">{{ Auth::user()->name }}</div>
             </a>
 
             <!-- Divider -->
@@ -67,6 +67,7 @@
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="/students">Students Data</a>
                         <a class="collapse-item" href="register.html">Students Payment</a>
+                        <a class="collapse-item" href="/userdata">User Data</a>
                     </div>
                 </div>
             </li>
@@ -103,7 +104,9 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <!--@yield('content')-->
+
+        @yield('content')
+
         <!-- End of Content Wrapper -->
     </div>
     <!-- End of Page Wrapper -->
@@ -126,7 +129,7 @@
                 <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
                 </div>
             </div>
         </div>
