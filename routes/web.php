@@ -19,7 +19,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('front.index');
+});
+
+Route::get('/about', function () {
+    return view('front.about');
+});
+
+Route::get('/faq', function () {
+    return view('front.faq');
+});
+
+Route::get('/contact', function () {
+    return view('front.contact');
 });
 
 
@@ -35,53 +47,50 @@ Route::middleware(['auth'])->group(function () {
 });
 
 
-Route::get('/students',[StudentsController::class, 'index'])->name('students');
-Route::get('/tambahstudents',[StudentsController::class, 'tambahstudents'])->name('tambahstudents');
+Route::get('/students', [StudentsController::class, 'index'])->name('students');
+Route::get('/tambahstudents', [StudentsController::class, 'tambahstudents'])->name('tambahstudents');
 
 
-Route::controller(ParentsController::class)->group(function(){
+Route::controller(ParentsController::class)->group(function () {
 
-    Route::get('/tambahdata2',[ParentsController::class, 'tambahdata2'])->name('tambahdata2');
-
+    Route::get('/tambahdata2', [ParentsController::class, 'tambahdata2'])->name('tambahdata2');
 });
 
 
-Route::post('/insertdata',[StudentsController::class, 'insertdata'])->name('insertdata');
+Route::post('/insertdata', [StudentsController::class, 'insertdata'])->name('insertdata');
 
 //menampilkan data berdasarkan ID pada update
-Route::get('/tampilkandata/{id}',[StudentsController::class, 'tampilkandata'])->name('tampilkandata');
-Route::post('/updatedata/{id}',[StudentsController::class, 'updatedata'])->name('updatedata');
+Route::get('/tampilkandata/{id}', [StudentsController::class, 'tampilkandata'])->name('tampilkandata');
+Route::post('/updatedata/{id}', [StudentsController::class, 'updatedata'])->name('updatedata');
 
-Route::get('/delete/{id}',[StudentsController::class, 'delete'])->name('delete');
+Route::get('/delete/{id}', [StudentsController::class, 'delete'])->name('delete');
 
 //export PDF
-Route::get('/exportpdf',[StudentsController::class, 'exportpdf'])->name('exportpdf');
+Route::get('/exportpdf', [StudentsController::class, 'exportpdf'])->name('exportpdf');
 
 //export excel
-Route::get('/exportexcel',[StudentsController::class, 'exportexcel'])->name('exportexcel');
+Route::get('/exportexcel', [StudentsController::class, 'exportexcel'])->name('exportexcel');
 
 //import data
-Route::post('/importexcel',[StudentsController::class, 'importexcel'])->name('importexcel');
+Route::post('/importexcel', [StudentsController::class, 'importexcel'])->name('importexcel');
 
 
-Route::get('/login',[loginController::class, 'login'])->name('login');
-Route::post('/loginproses',[loginController::class, 'loginproses'])->name('loginproses');
+Route::get('/login', [loginController::class, 'login'])->name('login');
+Route::post('/loginproses', [loginController::class, 'loginproses'])->name('loginproses');
 
 // get untuk menam[pilkan view, post untuk menyimpan data ke dalam database]
-Route::get('/registerakun',[loginController::class, 'registerakun'])->name('registerakun');
-Route::post('/registerakunuser',[loginController::class, 'registerakunuser'])->name('registerakunuser');
+Route::get('/registerakun', [loginController::class, 'registerakun'])->name('registerakun');
+Route::post('/registerakunuser', [loginController::class, 'registerakunuser'])->name('registerakunuser');
 
 Route::get('/logout', [loginController::class, 'logout'])->name('logout');
 
-Route::get('/indexs',[StudentsController::class, 'indexs'])->name('indexs');
-Route::get('/userdata',[StudentsController::class, 'userdata'])->name('userdata');
+Route::get('/indexs', [StudentsController::class, 'indexs'])->name('indexs');
+Route::get('/userdata', [StudentsController::class, 'userdata'])->name('userdata');
 
 //menampilkan data berdasarkan ID pada update user
-Route::get('/tampilkandatauser/{id}',[StudentsController::class, 'tampilkandatauser'])->name('tampilkandatauser');
-Route::post('/updatedatauser/{id}',[StudentsController::class, 'updatedatauser'])->name('updatedatauser');
-Route::get('/deleteuser/{id}',[StudentsController::class, 'deleteuser'])->name('deleteuser');
+Route::get('/tampilkandatauser/{id}', [StudentsController::class, 'tampilkandatauser'])->name('tampilkandatauser');
+Route::post('/updatedatauser/{id}', [StudentsController::class, 'updatedatauser'])->name('updatedatauser');
+Route::get('/deleteuser/{id}', [StudentsController::class, 'deleteuser'])->name('deleteuser');
 
 Route::get('/paymentstudents', [PaymentController::class, 'paymentstudents'])->name('paymentstudents');
 Route::post('/payment', [PaymentController::class, 'payment'])->name('payment');
-
-
