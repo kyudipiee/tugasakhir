@@ -37,8 +37,8 @@
                         </li>
                     </ul>
                     <div class="">
-                        <button class="button-primary">Register</button>
-                        <button class="button-secondary rounded-4">Sign In</button>
+                        <button class="button-primary"><a href="/registerakun" class="link-light">Register</a></button>
+                        <button class="button-secondary"><a href="/login" class="link-success">Login</a></button>
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                     <div class="col-md-6 hero-tagline my-auto">
                         <h1>Al-Muttaqin Solusi Sekolah Islami</h1>
                         <p><span>Lorem ipsum</span> dolor sit amet consectetur adipisicing elit. Quis optio dolores iusto, ad quaerat maxime ex reiciendis. Delectus, dicta.</p>
-                        <button class="button-lg-primary rounded-4">Daftar Sekarang</button>
+                        <button class="btn-daftar button-lg-primary rounded-4"><a href="/login" class="link-success">Daftar Sekarang</a></button>
                     </div>
                 </div>
                 <img src="{{asset('assets/img/students.png')}}" alt="" class="position-absolute end-0 bottom-0 img-hero">

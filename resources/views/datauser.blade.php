@@ -18,8 +18,8 @@
 
         <div class="row g-3 align-items-center mt-2 mb-3">
             <div class="col-auto">
-                <form action="/students" method="GET">
-                    <input type="search" name="search" id="inputPassword" class="form-control" aria-describedby="passwordHelpInline">
+                <form action="/userdata" method="GET">
+                    <input type="searchuser" name="searchuser" id="inputPassword" class="form-control" aria-describedby="passwordHelpInline">
                 </form>
             </div>
 
@@ -39,6 +39,7 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Password</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">dibuat</th>
                                             <th scope="col">aksi</th>
                                         </tr>
@@ -49,6 +50,7 @@
                                             <th scope="col">Name</th>
                                             <th scope="col">Email</th>
                                             <th scope="col">Password</th>
+                                            <th scope="col">Status</th>
                                             <th scope="col">dibuat</th>
                                             <th scope="col">aksi</th>
                                         </tr>
@@ -66,6 +68,14 @@
                                         <td>{{ $row->name }}</td>
                                         <td>{{ $row->email }}</td>
                                         <td>{{ $row->password }}</td>
+                                        <td>
+                                            @if ($row->role == '1')
+                                                student
+                                            @else
+                                                admin
+                                            @endif
+
+                                        </td>
                                         <td>{{ $row->created_at->format('D M Y') }}</td>
                                         <td>
                                             <a href="/tampilkandatauser/{{ $row->id }}" class="btn btn-warning">EDIT</a>

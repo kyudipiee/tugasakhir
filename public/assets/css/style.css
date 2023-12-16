@@ -27,15 +27,24 @@
     font-weight: 700;
 }
 .button-primary{
+    display: inline-block;
+    border-radius: 10px;
+    place-items: center;
+    margin: auto;
     width: 133px;
     height: 40px;
     background-color: transparent;
     color: #fff;
+    padding: 20px;
     border: none;
     font-size: 16px;
     font-weight: 400;
 }
 .button-secondary{
+    display: inline-block;
+    border-radius: 10px;
+    place-items: center;
+    margin: auto;
     width: 133px;
     height: 40px;
     background-color: #fff;
@@ -44,7 +53,15 @@
     font-size: 16px;
     font-weight: 700;
 }
-
+.btn-daftar a{
+    text-decoration: none;
+}
+.button-secondary a{
+    text-decoration: none;
+}
+.button-primary a{
+    text-decoration: none;
+}
 /* Hero */
 #hero{
     background: linear-gradient(160deg, var(--pr-color), #0000);

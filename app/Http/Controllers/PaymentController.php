@@ -7,25 +7,16 @@ use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-    public function paymentstudents(){
-        return view('paymentstudents');
+    public function paymentstudents()
+    {
+        return view('front.paymentstudents');
     }
 
     // request untuk menampung kriiman data dari client
-    public function payment(Request $request){
-        $request->request->add(['total_price' => $request->qty * 150000, 'status' => 'unpaid']);
+    public function checkout(Request $request)
+    {
+        $request->request->add(['total_price' => 150000, 'status' => 'unpaid']);
         $payment = Payment::create($request->all());
-
-        /*Install Midtrans PHP Library (https://github.com/Midtrans/midtrans-php)
-        composer require midtrans/midtrans-php
-
-        Alternatively, if you are not using **Composer**, you can download midtrans-php library
-        (https://github.com/Midtrans/midtrans-php/archive/master.zip), and then require
-        the file manually.
-
-        require_once dirname(__FILE__) . '/pathofproject/Midtrans.php'; */
-
-        //SAMPLE REQUEST START HERE
 
         // Set your Merchant Server Key
         \Midtrans\Config::$serverKey = config('midtrans.server_key');
@@ -48,7 +39,18 @@ class PaymentController extends Controller
         );
 
         $snapToken = \Midtrans\Snap::getSnapToken($params);
-        dd($snapToken);
-        return view('payment', compact('snapToken', 'payment'));
+        return view('front.checkout', compact('snapToken', 'payment'));
+    }
+
+    public function callback(Request $request)
+    {
+        $serverKey = config('midtrans.server_key');
+        $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
+        if ($hashed == $request->signature_key) {
+            if ($request->transaction_status == 'capture' or $request->transaction_status == 'settlement') {
+                $payment = Payment::find($request->order_id);
+                $payment->update(['status' => 'Paid']);
+            }
         }
+    }
 }

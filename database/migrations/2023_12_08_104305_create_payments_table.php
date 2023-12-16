@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->bigInteger('telp_students');
-            $table->enum('jurusan', ['ipa','ips','tahfidz']);
+            $table->enum('jurusan', ['ipa', 'ips', 'tahfidz']);
             $table->date('tanggal_test');
             $table->integer('qty');
             $table->bigInteger('total_price');

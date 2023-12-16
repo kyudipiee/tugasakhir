@@ -23,7 +23,14 @@
   text-align: left;
   background-color: #04AA6D;
   color: white;
+  font-size: 10px
 }
+
+#customers tr {
+
+  font-size: 10px
+}
+
 </style>
 </head>
 <body>
@@ -32,18 +39,16 @@
 
 <table id="customers">
   <tr>
-    <th>no</th>
-    <th>nama</th>
-    <th>nisn</th>
-    <th>tempat</th>
-    <th>tanggal lahir</th>
-    <th>jenis kelamin</th>
-    <th>telp students</th>
-    <th>alamat</th>
-    <th>kecamatan</th>
-    <th>provinsi</th>
-    <th>zip</th>
-
+    <th>No</th>
+    <th>Name</th>
+    <th>NISN</th>
+    <th>Place of Birth</th>
+    <th>Birthday</th>
+    <th>Gender</th>
+    <th>Phone</th>
+    <th>Address</th>
+    <th>Major</th>
+    <th>Date of Test</th>
   </tr>
 
   @php
@@ -58,12 +63,11 @@
     <td>{{ $row->tempat }}</td>
     <td>{{ $row->ttl }}</td>
     <td>{{ $row->jk }}</td>
-    <td>{{ $row->telp_students }}</td>
-    <td>{{ $row->alamat }}</td>
-    <td>{{ $row->kecamatan }}</td>
-    <td>{{ $row->provinsi }}</td>
-    <td>{{ $row->zip }}</td>
     <td>0{{ $row->telp_students }}</td>
+    <td>{{ $row->alamat }}</td>
+    <td>{{ $row->jurusan }}</td>
+    <td>{{ $row->tanggal_test }}</td>
+
   </tr>
   @endforeach
 

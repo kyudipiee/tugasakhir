@@ -37,8 +37,8 @@
                         </li>
                     </ul>
                     <div class="">
-                        <button class="button-primary">Register</button>
-                        <button class="button-secondary rounded-4">Sign In</button>
+                        <button class="button-primary"><a href="/registerakun" class="link-light">Register</a></button>
+                        <button class="button-secondary"><a href="/login" class="link-success">Login</a></button>
                     </div>
                 </div>
             </div>

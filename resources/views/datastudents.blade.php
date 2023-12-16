@@ -24,42 +24,10 @@
                 </form>
             </div>
 
-            <div class="col-auto">
+            {{-- <div class="col-auto">
                 <a href="/exportpdf" class="btn btn-danger">export PDF</a>
-            </div>
-            <div class="col-auto">
-                <a href="/exportexcel" class="btn btn-success">export Excel</a>
-            </div>
-            <div class="col-auto">
-            <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Import Data
-                </button>
-            </div>
+            </div> --}}
 
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                    <form action="/importexcel" method="POST" enctype="multipart/form-data">
-                            @csrf
-                                <div class="modal-body">
-                                    <div class="form-group">
-                                        <input type="file" name="file" required>
-                                    </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save changes</button>
-                                </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
 
         </div>
 
@@ -82,6 +50,7 @@
                                             <th scope="col">Phone</th>
                                             <th scope="col">Address</th>
                                             <th scope="col">Major</th>
+                                            <th scope="col">Created by</th>
                                             <th scope="col">Date of Test</th>
                                             <th scope="col">dibuat</th>
                                             <th scope="col">aksi</th>
@@ -98,6 +67,7 @@
                                             <th scope="col">Phone</th>
                                             <th scope="col">Address</th>
                                             <th scope="col">Major</th>
+                                            <th scope="col">Created by</th>
                                             <th scope="col">Date of Test</th>
                                             <th scope="col">dibuat</th>
                                             <th scope="col">aksi</th>
@@ -127,7 +97,7 @@
                                         <td>{{ $row->created_at->format('D M Y') }}</td>
                                         <td>
                                             <a href="/tampilkandata/{{ $row->id }}" class="btn btn-warning">EDIT</a>
-                                            <a href="#" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" >DELETE</a>
+                                            <a href="/delete/{{ $row->id }}" class="btn btn-danger delete" data-id="{{ $row->id }}" data-nama="{{ $row->nama }}" >DELETE</a>
                                         </td>
                                     </tr>
                                     @endforeach
